@@ -120,6 +120,7 @@ export const SignInController = async (req, res) => {
       refreshToken,
     });
   } catch (error) {
+    console.log(error);
     res.status(500).json({
       success: false,
       message: "An unexpected error occurred while LogingIn",

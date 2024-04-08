@@ -15,7 +15,7 @@ config({ path: "./Config/config.env" });
 const App = express();
 App.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: process.env.FRONT_END_ORIGIN,
     credentials: true,
   })
 );
@@ -32,6 +32,8 @@ App.use("/api/edu", EducationRouter);
 App.use("/api/project", ProjectRouter);
 App.use("/api/experience", ExperienceRouter);
 App.use("/api/awards", AwardRouter);
+
+const port = process.env.PORT || 4001;
 
 App.listen(process.env.PORT, () =>
   console.log(`server is running on ${process.env.PORT}`)

@@ -22,7 +22,7 @@ App.use(
 DBconnect();
 App.use(express.json());
 App.get("/", (req, res) => {
-  res.send("server is running");
+  res.send({ success: true, message: "Server is Running" });
 });
 App.use("/api/auth", AuthRouter);
 App.use("/api/user", UserRouter);
